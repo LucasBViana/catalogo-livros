@@ -202,12 +202,12 @@ class BookCatalog {
     }
 
     // ==================== DADOS DE EXEMPLO ====================
-/*
+
     getSampleBooks() {
         return [
             new Book(
                 Date.now().toString(),
-                'https://m.media-amazon.com/images/I/81dQwsQNxnL._AC_UF1000,1000_QL80_.jpg',
+                'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSHL9cZVgukvBpU3Ar9N57jdjPygW9uUIKD6Q&s',
                 'O Alquimista',
                 'Paulo Coelho',
                 'Um livro sobre a importância de seguir os próprios sonhos e ouvir o coração.',
@@ -231,7 +231,7 @@ class BookCatalog {
             )
         ];
     }
-*/
+
     // ==================== CRUD OPERATIONS ====================
 
     //Adição de livros novos
