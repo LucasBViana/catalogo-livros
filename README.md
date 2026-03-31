@@ -52,7 +52,7 @@ Aplicação web para gerenciamento de um catálogo de livros, desenvolvida como 
 ```bash
 git clone https://github.com/LucasBViana/catalogo-livros.git
 ```
-2. Após isso digite, ainda no terminal, o seguinte código para entrar no repositório da aplicação:
+2. Após isso digite, ainda no terminal, o seguinte código para entrar no diretório da aplicação:
 ```bash
 cd catalogo-livros
 ```
