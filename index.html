@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catálogo de Livros</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Cabeçalho -->
+        <header class="header">
+            <h1>
+                <i class="fas fa-book-open"></i>
+                Catálogo de Livros
+            </h1>
+            <div class="header-buttons">
+                <button id="btnExport" class="btn btn-secondary">
+                    <i class="fas fa-upload"></i>
+                    Exportar Dados
+                </button>
+                <button id="btnImport" class="btn btn-secondary">
+                    <i class="fas fa-download"></i>
+                    Importar Dados
+                </button>
+                <input type="file" id="fileImport" accept=".json" style="display: none;">
+                <button id="btnAddBook" class="btn btn-primary">
+                    <i class="fas fa-plus"></i>
+                    Novo Livro
+                </button>  
+            </div>
+        </header>
+
+        <!-- Barra de busca e filtros -->
+        <div class="filters">
+            <div class="filter-buttons">
+                <button id="filterAll" class="filter-btn active">Todos</button>
+                <button id="filterFavorites" class="filter-btn">
+                    <i class="fas fa-star"></i>
+                    Favoritos
+                </button>
+            </div>
+            <div class="search-box">
+                <i class="fas fa-search"></i>
+                <input type="text" id="searchInput" placeholder="Buscar por título ou autor...">
+            </div>
+            <div class="sort-group">
+                <label><i class="fas fa-sort"></i> Ordenar:</label>
+                <select id="sortBy" class="sort-select">
+                    <option value="dateDesc">Mais recentes</option>
+                    <option value="dateAsc">Mais antigos</option>
+                    <option value="titleAsc">Título (A-Z)</option>
+                    <option value="titleDesc">Título (Z-A)</option>
+                    <option value="authorAsc">Autor (A-Z)</option>
+                    <option value="authorDesc">Autor (Z-A)</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Listagem de livros -->
+        <div id="bookList" class="book-list">
+        </div>
+    </div>
+
+    <!-- Modal para cadastro/edição -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modalTitle">Adicionar Livro</h2>
+                <span class="close">&times;</span>
+            </div>
+            <form id="bookForm">
+                <div class="form-group">
+                    <label for="coverUrl">URL da Capa do Livro *</label>
+                    <input type="url" id="coverUrl" name="coverUrl" required 
+                           placeholder="https://exemplo.com/capa.jpg">
+                    <small>Insira uma URL válida de imagem</small>
+                </div>
+
+                <div class="form-group">
+                    <label for="title">Título *</label>
+                    <input type="text" id="title" name="title" required 
+                           placeholder="Digite o título do livro">
+                </div>
+
+                <div class="form-group">
+                    <label for="author">Autor *</label>
+                    <input type="text" id="author" name="author" required 
+                           placeholder="Digite o nome do autor">
+                </div>
+
+                <div class="form-group">
+                    <label for="description">Descrição *</label>
+                    <textarea id="description" name="description" required 
+                              rows="4" placeholder="Digite uma breve descrição do livro..."></textarea>
+                </div>
+
+                <div class="form-actions">
+                    <button type="button" class="btn btn-secondary" id="cancelBtn">Cancelar</button>
+                    <button type="submit" class="btn btn-primary">Salvar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Toast de notificação -->
+    <div id="toast" class="toast"></div>
+
+    <!-- Modal de Confirmação Personalizado -->
+    <div id="confirmModal" class="modal confirm-modal">
+        <div class="modal-content confirm-modal-content">
+            <div class="modal-header confirm-modal-header">
+                <h2 id="confirmModalTitle">
+                    <i class="fas fa-question-circle"></i>
+                    Confirmar Exclusão
+                </h2>
+            </div>
+            <div class="confirm-modal-body">
+                <p id="confirmMessage">Tem certeza que deseja excluir este livro?</p>
+                <div class="book-preview" id="bookPreview" style="display: none;">
+                    <img id="previewCover" class="preview-cover" src="" alt="">
+                    <div class="preview-info">
+                        <strong id="previewTitle"></strong>
+                        <span id="previewAuthor"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="form-actions confirm-actions">
+                <button type="button" class="btn btn-secondary" id="confirmCancelBtn">
+                    <i class="fas fa-times"></i>
+                    Cancelar
+                </button>
+                <button type="button" class="btn btn-danger" id="confirmDeleteBtn">
+                    <i class="fas fa-trash"></i>
+                    Excluir
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="books_catalogy.js"></script>
+</body>
+</html>
