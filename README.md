@@ -48,12 +48,17 @@ Aplicação web para gerenciamento de um catálogo de livros, desenvolvida como 
 ## Como Executar
 
 ### Opção 1: Localmente
-1. Clone o repositório:
+1. Abra o terminal/CMD e clone o repositório utilizando o seguinte código:
 ```bash
 git clone https://github.com/LucasBViana/catalogo-livros.git
-
+```
+2. Após isso digite, ainda no terminal, o seguinte código para entrar no repositório da aplicação:
+```bash
 cd catalogo-livros
+```
 
+3. Então, para abrir a aplicação digite o seguinte no terminal:
+```bash
 # No Windows
 start index.html
 
